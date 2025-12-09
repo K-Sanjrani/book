@@ -1,0 +1,8 @@
+{
+  "label": "Chapter 1: Introduction to Physical AI",
+  "position": 1,
+  "link": {
+    "type": "generated-index",
+    "description": "Learn the fundamentals of hands-on AI development. This chapter covers core concepts with practical examples you can run immediately. Start here if you're new to AI."
+  }
+}

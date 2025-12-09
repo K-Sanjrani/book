@@ -1,0 +1,11 @@
+Setting up a simple temperature prediction model...
+Training data loaded: 10 samples
+Model trained successfully!
+
+Making predictions:
+Temperature: 75°F -> Comfort Level: 0.83
+Temperature: 50°F -> Comfort Level: 0.52
+Temperature: 95°F -> Comfort Level: 0.61
+Temperature: 30°F -> Comfort Level: 0.00
+
+Predictions complete!

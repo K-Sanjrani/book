@@ -1,0 +1,115 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Physical-AI Lesson Schema",
+  "description": "JSON Schema for validating lesson front matter and structure",
+  "type": "object",
+  "required": [
+    "title",
+    "description",
+    "chapter_id",
+    "position",
+    "difficulty",
+    "estimated_time_minutes",
+    "prerequisites",
+    "learning_outcomes",
+    "status"
+  ],
+  "properties": {
+    "title": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 80,
+      "description": "Lesson title"
+    },
+    "description": {
+      "type": "string",
+      "minLength": 20,
+      "maxLength": 200,
+      "description": "One-liner for search previews"
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^chapter-\\d+-lesson-\\d+$",
+      "description": "Unique identifier (auto-generated if omitted)"
+    },
+    "chapter_id": {
+      "type": "string",
+      "pattern": "^chapter-\\d+$",
+      "description": "Parent chapter ID"
+    },
+    "position": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Display order within chapter"
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": ["beginner", "intermediate"],
+      "description": "Target skill level"
+    },
+    "estimated_time_minutes": {
+      "type": "integer",
+      "minimum": 15,
+      "maximum": 180,
+      "description": "Time to complete lesson (minutes)"
+    },
+    "prerequisites": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Array of lesson IDs or external knowledge requirements"
+    },
+    "learning_outcomes": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 10,
+        "maxLength": 150
+      },
+      "minItems": 3,
+      "maxItems": 5,
+      "description": "Specific, measurable outcomes"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "review", "published"],
+      "description": "Publication status"
+    },
+    "metadata": {
+      "type": "object",
+      "properties": {
+        "author": {
+          "type": "string",
+          "description": "GitHub username or email"
+        },
+        "created_at": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp"
+        },
+        "last_updated": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 timestamp"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Searchable keywords"
+        },
+        "languages": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["python", "javascript", "bash"]
+          },
+          "description": "Programming languages used in examples"
+        }
+      }
+    }
+  },
+  "additionalProperties": false
+}
